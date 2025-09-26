@@ -104,6 +104,13 @@ public class Application {
 //        prestitoDAO.savePrestito(prestito5);
 //        prestitoDAO.savePrestito(prestito6);
 
+//        Utente utente2 = utenteDAO.findById(2);
+//        ElementoMultimediale libro2 = elementoDAO.findByIsbn(2);
+//
+//        Prestito prestito7 = new Prestito(utente2, libro2, LocalDate.of(2025, 8, 1), LocalDate.of(2025, 9, 1));
+//
+//        prestitoDAO.savePrestito(prestito7);
+
         List<Prestito> listaPrestitiNonRestituitiEScaduti = prestitoDAO.findPrestitiNonRestituitiEScaduti();
 
         listaPrestitiNonRestituitiEScaduti.forEach(System.out::println);
