@@ -4,6 +4,8 @@ import emanuelesanna.entities.ElementoMultimediale;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
+import java.util.List;
+
 public class ElementoMultimedialeDao {
     private EntityManager em;
 
@@ -44,5 +46,33 @@ public class ElementoMultimedialeDao {
         }
     }
 
+    public List<ElementoMultimediale> findByAnnoDiPubblicazione(int annoDiPubblicazione) {
+        return em.createQuery(
+                        "SELECT e FROM ElementoMultimediale e WHERE e.annoDiPubblicazione = :anno",
+                        ElementoMultimediale.class)
+                .setParameter("anno", annoDiPubblicazione)
+                .getResultList();
+    }
+
+    public List<ElementoMultimediale> findByAutore(String autore) {
+        return em.createQuery("Select e from ElementoMultimediale e WHERE e.autore = :autore",
+                        ElementoMultimediale.class)
+                .setParameter("autore", autore)
+                .getResultList();
+    }
+
+    public List<ElementoMultimediale> findByTitolo(String title) {
+        return em.createQuery("Select e from ElementoMultimediale e WHERE e.titolo = :titolo",
+                        ElementoMultimediale.class)
+                .setParameter("titolo", title)
+                .getResultList();
+    }
+
+    public List<ElementoMultimediale> findByPortionOfTitolo(String portionOfTitle) {
+        return em.createQuery("Select e from ElementoMultimediale e WHERE e.titolo LIKE :titolo",
+                        ElementoMultimediale.class)
+                .setParameter("titolo", "%" + portionOfTitle + "%")
+                .getResultList();
+    }
 }
 
