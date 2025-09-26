@@ -15,5 +15,6 @@ public class Application {
 //        PersonaDAO prd = new PersonaDAO(em);
         System.out.println("Hello World!");
 //        Il db è collegato uu
+        //Ho dovuto cancellare il db per fixare
     }
 }

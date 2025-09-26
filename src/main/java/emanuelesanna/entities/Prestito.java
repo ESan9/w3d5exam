@@ -14,7 +14,7 @@ public class Prestito {
     @JoinColumn(name = "utente_id", referencedColumnName = "numeroDiTessera")
     private Utente utente;
     @ManyToOne
-    @JoinColumn(name = "elemento_prestato_id", referencedColumnName = "codiceIsbn")
+    @JoinColumn(name = "elemento_prestato_id", referencedColumnName = "codice_isbn")
     private ElementoMultimediale elementoPrestato;
     @Column(name = "data_inizio_prestito", nullable = false)
     private LocalDate dataInizioPrestito;
