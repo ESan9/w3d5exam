@@ -20,8 +20,7 @@ public abstract class ElementoMultimediale {
     public ElementoMultimediale() {
     }
 
-    public ElementoMultimediale(int codiceIsbn, String titolo, int annoDiPubblicazione, int numeroDiPagine) {
-        this.codiceIsbn = codiceIsbn;
+    public ElementoMultimediale(String titolo, int annoDiPubblicazione, int numeroDiPagine) {
         this.titolo = titolo;
         this.annoDiPubblicazione = annoDiPubblicazione;
         this.numeroDiPagine = numeroDiPagine;

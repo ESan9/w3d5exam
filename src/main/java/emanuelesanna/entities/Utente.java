@@ -20,11 +20,10 @@ public class Utente {
 
     }
 
-    public Utente(String nome, String cognome, LocalDate dataDiNascita, int numeroDiTessera) {
+    public Utente(String nome, String cognome, LocalDate dataDiNascita) {
         this.nome = nome;
         this.cognome = cognome;
         this.dataDiNascita = dataDiNascita;
-        this.numeroDiTessera = numeroDiTessera;
     }
 
     public String getNome() {

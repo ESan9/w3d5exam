@@ -14,8 +14,8 @@ public class Riviste extends ElementoMultimediale {
     public Riviste() {
     }
 
-    public Riviste(int codiceIsbn, String titolo, int annoDiPubblicazione, int numeroDiPagine, Periodicita periodicita) {
-        super(codiceIsbn, titolo, annoDiPubblicazione, numeroDiPagine);
+    public Riviste(String titolo, int annoDiPubblicazione, int numeroDiPagine, Periodicita periodicita) {
+        super(titolo, annoDiPubblicazione, numeroDiPagine);
         this.periodicita = periodicita;
     }
 

@@ -17,8 +17,8 @@ public class Libri extends ElementoMultimediale {
     public Libri() {
     }
 
-    public Libri(int codiceIsbn, String titolo, int annoDiPubblicazione, int numeroDiPagine, String autore, String genere) {
-        super(codiceIsbn, titolo, annoDiPubblicazione, numeroDiPagine);
+    public Libri(String titolo, int annoDiPubblicazione, int numeroDiPagine, String autore, String genere) {
+        super(titolo, annoDiPubblicazione, numeroDiPagine);
         this.autore = autore;
         this.genere = genere;
     }
