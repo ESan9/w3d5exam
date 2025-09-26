@@ -3,14 +3,13 @@ package emanuelesanna.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 public class Prestito {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_prestito")
-    private UUID idPrestito;
+    private int idPrestito;
     @ManyToOne
     @JoinColumn(name = "utente_id", referencedColumnName = "numeroDiTessera")
     private Utente utente;
@@ -35,7 +34,7 @@ public class Prestito {
         this.dataRestituzioneEffettiva = dataRestituzioneEffettiva;
     }
 
-    public UUID getIdPrestito() {
+    public int getIdPrestito() {
         return idPrestito;
     }
 

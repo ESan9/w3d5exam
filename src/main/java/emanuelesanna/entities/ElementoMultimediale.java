@@ -2,16 +2,14 @@ package emanuelesanna.entities;
 
 import jakarta.persistence.*;
 
-import java.util.UUID;
-
 @Entity
 @Table(name = "elemento_multimediale")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class ElementoMultimediale {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codice_isbn", nullable = false)
-    private UUID codiceIsbn;
+    private int codiceIsbn;
     @Column(nullable = false)
     private String titolo;
     @Column(name = "anno_di_pubblicazione", nullable = false)
@@ -22,14 +20,14 @@ public abstract class ElementoMultimediale {
     public ElementoMultimediale() {
     }
 
-    public ElementoMultimediale(UUID codiceIsbn, String titolo, int annoDiPubblicazione, int numeroDiPagine) {
+    public ElementoMultimediale(int codiceIsbn, String titolo, int annoDiPubblicazione, int numeroDiPagine) {
         this.codiceIsbn = codiceIsbn;
         this.titolo = titolo;
         this.annoDiPubblicazione = annoDiPubblicazione;
         this.numeroDiPagine = numeroDiPagine;
     }
 
-    public UUID getCodiceIsbn() {
+    public int getCodiceIsbn() {
         return codiceIsbn;
     }
 

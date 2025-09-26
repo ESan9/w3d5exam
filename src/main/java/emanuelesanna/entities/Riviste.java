@@ -3,8 +3,6 @@ package emanuelesanna.entities;
 import emanuelesanna.enums.Periodicita;
 import jakarta.persistence.*;
 
-import java.util.UUID;
-
 @Entity
 @Table(name = "riviste")
 @PrimaryKeyJoinColumn(name = "codice_isbn")
@@ -16,7 +14,7 @@ public class Riviste extends ElementoMultimediale {
     public Riviste() {
     }
 
-    public Riviste(UUID codiceIsbn, String titolo, int annoDiPubblicazione, int numeroDiPagine, Periodicita periodicita) {
+    public Riviste(int codiceIsbn, String titolo, int annoDiPubblicazione, int numeroDiPagine, Periodicita periodicita) {
         super(codiceIsbn, titolo, annoDiPubblicazione, numeroDiPagine);
         this.periodicita = periodicita;
     }
