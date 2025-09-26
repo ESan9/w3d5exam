@@ -9,6 +9,7 @@ import java.util.UUID;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class ElementoMultimediale {
     @Id
+    @GeneratedValue
     @Column(name = "codice_isbn", nullable = false)
     private UUID codiceIsbn;
     @Column(nullable = false)

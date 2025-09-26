@@ -14,5 +14,6 @@ public class Application {
 //        PartecipazioneDAO pd = new PartecipazioneDAO(em);
 //        PersonaDAO prd = new PersonaDAO(em);
         System.out.println("Hello World!");
+//        Il db è collegato uu
     }
 }

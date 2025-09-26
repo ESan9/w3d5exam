@@ -5,13 +5,11 @@
     <persistence-unit name="w3d5exampu">
         <!-- Il nome della persistence unit è importante e ci servirà usarlo dopo nel codice JAVA -->
         <!-- Se non dichiaro le mie entities qua, non le troverà e non creerà automaticamente le tabelle -->
-        <class>emanuelesanna.entities.Evento</class>
-        <class>emanuelesanna.entities.Location</class>
-        <class>emanuelesanna.entities.Persona</class>
-        <class>emanuelesanna.entities.Partecipazione</class>
-        <class>emanuelesanna.entities.GaraDiAtletica</class>
-        <class>emanuelesanna.entities.Concerto</class>
-        <class>emanuelesanna.entities.PartitaDiCalcio</class>
+        <class>emanuelesanna.entities.ElementoMultimediale</class>
+        <class>emanuelesanna.entities.Libri</class>
+        <class>emanuelesanna.entities.Riviste</class>
+        <class>emanuelesanna.entities.Prestito</class>
+        <class>emanuelesanna.entities.Utente</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/w3d5exam"/>
             <!-- Dopo l'ultimo slash devo inserire il nome del database (QUESTO DEVE ESISTERE PERO') -->
