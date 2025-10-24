@@ -24,7 +24,7 @@ public class EventoController {
     @Autowired
     private EventoService eventoService;
 
-    // --- 1. READ ALL (Accessibile a tutti gli Utenti autenticati) ---
+    // 1. READ ALL (Accessibile a tutti gli Utenti autenticati)
     // GET http://localhost:3001/eventi 200 OK
     @GetMapping
     @PreAuthorize("isAuthenticated()") //
@@ -35,7 +35,7 @@ public class EventoController {
         return this.eventoService.findAll(page, size, sortBy);
     }
 
-    // --- 2. CREATE (Solo Organizzatori) ---
+    // 2. CREATE (Solo Organizzatori)
     // POST http://localhost:3001/eventi (+ payload) 201 CREATED
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -50,7 +50,7 @@ public class EventoController {
         return this.eventoService.save(payload, organizzatore);
     }
 
-    // --- 3. READ BY ID (Accessibile a tutti gli Utenti autenticati) ---
+    // 3. READ BY ID (Accessibile a tutti gli Utenti autenticati)
     // GET http://localhost:3001/eventi/{eventoId} 200 OK
     @GetMapping("/{eventoId}")
     @PreAuthorize("isAuthenticated()")
@@ -58,7 +58,7 @@ public class EventoController {
         return this.eventoService.findById(eventoId);
     }
 
-    // --- 4. UPDATE (Solo Organizzatori e solo il PROPRIETARIO) ---
+    // 4. UPDATE (Solo Organizzatori e solo il PROPRIETARIO)
     // PUT http://localhost:3001/eventi/{eventoId} + payload 200 OK
     @PutMapping("/{eventoId}")
     @PreAuthorize("hasAuthority('ORGANIZZATORE_DI_EVENTI')")
@@ -71,7 +71,7 @@ public class EventoController {
             throw new ValidationException(validationResult.getFieldErrors()
                     .stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
         }
-        
+
         Evento eventoDaModificare = eventoService.findById(eventoId);
         if (!eventoDaModificare.getUtente().getUtenteId().equals(utenteAutenticato.getUtenteId())) {
             throw new AuthorizationDeniedException("Non hai i permessi per modificare questo evento.");
@@ -80,7 +80,7 @@ public class EventoController {
         return this.eventoService.findByIdAndUpdate(eventoId, payload);
     }
 
-    // --- 5. DELETE (Solo Organizzatori e solo il PROPRIETARIO) ---
+    // 5. DELETE (Solo Organizzatori e solo il PROPRIETARIO)
     // DELETE http://localhost:3001/eventi/{eventoId} 204 NC
     @DeleteMapping("/{eventoId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
