@@ -16,6 +16,9 @@ import java.util.UUID;
 public class PrenotazioneService {
 
     @Autowired
+    private UtenteService utenteService;
+
+    @Autowired
     private PrenotazioneRepository prenotazioneRepo;
 
     @Autowired
@@ -44,6 +47,7 @@ public class PrenotazioneService {
         return prenotazioneRepo.save(nuovaPrenotazione);
     }
 
+
     public void annullaPrenotazione(UUID prenotazioneId, Utente utenteAutenticato) {
         Prenotazione prenotazione = prenotazioneRepo.findById(prenotazioneId)
                 .orElseThrow(() -> new BadRequestException("ID prenotazione non valido."));
@@ -56,6 +60,9 @@ public class PrenotazioneService {
     }
 
     public List<Prenotazione> findByUtenteId(UUID utenteId) {
-        return prenotazioneRepo.findByUtenteUtenteId(utenteId);
+
+        Utente utente = utenteService.findById(utenteId);
+
+        return prenotazioneRepo.findByUtente(utente);
     }
 }

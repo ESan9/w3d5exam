@@ -28,7 +28,8 @@ public class Evento {
     @ManyToOne
     @JoinColumn(name = "id_utente")
     private Utente utente;
-    @OneToMany(mappedBy = "evento")
+    //    Ho aggiunto cascade e orphan per evitare problemi relativi alle entità collegate quando vado a eliminare un evento, al posto di mettere direttamente altra logica, è più veloce e risolve il problema di integrità
+    @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Prenotazione> prenotazioni = new ArrayList<>();
 
     public Evento(String titolo, String descrizione, LocalDate data, String luogo, int numeroPostiDisponibili, Utente utente) {

@@ -1,6 +1,7 @@
 package emanuelesanna.w3d5exam.repositories;
 
 import emanuelesanna.w3d5exam.entities.Prenotazione;
+import emanuelesanna.w3d5exam.entities.Utente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +15,6 @@ public interface PrenotazioneRepository extends JpaRepository<Prenotazione, UUID
     int countByEventoEventoId(UUID eventoId);
 
     List<Prenotazione> findByUtenteUtenteId(UUID utenteId);
+
+    List<Prenotazione> findByUtente(Utente utente);
 }
