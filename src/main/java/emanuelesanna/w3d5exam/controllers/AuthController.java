@@ -27,7 +27,7 @@ public class AuthController {
         return new LoginResponseDTO(authService.checkCredentialsAndGenerateToken(body));
     }
 
-    // 2 POST http://localhost:3001/utenti (+ payload) 201 CREATED
+    // 2 POST http://localhost:3001/ (+ payload) 201 CREATED
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public Utente createUtente(@RequestBody @Validated NewUtenteDTO payload, BindingResult validationResult) {

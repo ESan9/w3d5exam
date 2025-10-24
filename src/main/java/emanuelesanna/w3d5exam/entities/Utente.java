@@ -43,6 +43,7 @@ public class Utente implements UserDetails {
         this.email = email;
         this.password = password;
         this.role = Role.UTENTE_NORMALE;
+//        Per usare Organizzatore ho semplicemente fatto una post con Role.ORGANIZZATORE_DI_EVENTI
     }
 
     @Override

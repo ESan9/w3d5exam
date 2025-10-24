@@ -25,8 +25,9 @@ public class SecurityConfig {
 
         httpSecurity.sessionManagement(sessions -> sessions.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-        httpSecurity.authorizeHttpRequests(req -> req.requestMatchers("/**").permitAll());
-
+        httpSecurity.authorizeHttpRequests(req -> req
+                .requestMatchers("/auth/**").permitAll()
+        );
         httpSecurity.cors(Customizer.withDefaults());
 
         return httpSecurity.build();
